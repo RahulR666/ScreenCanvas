@@ -75,6 +75,9 @@ ScreenCanvas is a Python-based virtual drawing application that uses hand gestur
 
 Contributions are welcome! Please feel free to submit a Pull Request or open an Issue to discuss improvements or bug fixes.
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
