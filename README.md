@@ -30,13 +30,15 @@ ScreenCanvas is a Python-based virtual drawing application that uses hand gestur
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/yourusername/screencanvas.git
+    [git clone https://github.com/yourusername/screencanvas.git](https://github.com/RahulR666/ScreenCanvas.git)
     cd screencanvas
     ```
 
 2. **Install the required dependencies**:
     ```bash
-    pip install -r requirements.txt
+    pip install numpy
+    pip install opencv-python
+    pip install mediapipe
     ```
 
 3. **Run the application**:
