@@ -1,82 +1,213 @@
 # ScreenCanvas
 
-ScreenCanvas is a Python-based virtual drawing application that uses hand gestures to draw on a canvas. The application utilizes OpenCV and MediaPipe to track hand movements in real-time, allowing users to select colors, draw, and clear the canvas using simple hand gestures.
+A real-time gesture-controlled virtual drawing application built with Python, OpenCV, and MediaPipe.
+
+ScreenCanvas uses hand-landmark tracking to let users draw on a digital canvas using finger movements, switch colors through gesture-based interaction, clear the canvas, and interact with the application without a mouse or touchscreen.
+
+---
+
+## Overview
+
+The project combines computer vision and human-computer interaction to create a touchless drawing interface.
+
+A webcam captures the user's hand in real time. MediaPipe detects and tracks hand landmarks, while OpenCV processes the video stream and renders the drawing canvas.
+
+The position of the index finger is used as the primary drawing input.
+
+---
 
 ## Features
 
-- **Real-time Hand Gesture Recognition**: Tracks hand landmarks to detect gestures and control drawing.
-- **Virtual Canvas Drawing**: Allows users to draw on a digital canvas using finger movements.
-- **Dynamic Color Selection**: Switch between multiple colors (blue, green, red, yellow) using hand gestures.
-- **Canvas Clearing**: Clear the canvas with a simple gesture.
+- Real-time hand landmark detection
+- Gesture-controlled drawing
+- Virtual drawing canvas
+- Dynamic color selection
+- Multiple drawing colors
+- Gesture-based canvas clearing
+- Real-time webcam processing
+- Touchless human-computer interaction
 
-## Tools, Frameworks, and Libraries
-
-### Programming Language
-- **Python**: The main language used for the development of the application.
-
-### Libraries
-- **OpenCV (cv2)**: Used for real-time video processing, drawing operations, and creating the canvas interface.
-- **MediaPipe**: Provides accurate hand and finger landmark detection.
-- **NumPy**: Handles numerical operations, specifically for image processing tasks.
-- **Collections (deque)**: Manages drawing points efficiently using double-ended queues.
-
-### Frameworks
-- **MediaPipe**: Acts as a framework for hand tracking and gesture recognition.
-
-### Tools
-- **Webcam**: Captures real-time video input for processing.
-
-## Installation
-
-1. **Clone the repository**:
-    ```bash
-    https://github.com/RahulR666/ScreenCanvas.git
-    cd screencanvas
-    ```
-
-2. **Install the required dependencies**:
-    ```bash
-    pip install numpy
-    pip install opencv-python
-    pip install mediapipe
-    ```
-
-3. **Run the application**:
-    ```bash
-    python screencanvas.py
-    ```
+---
 
 ## How It Works
 
-- The application captures real-time video from your webcam and processes the frames to detect hand gestures.
-- By tracking the index finger's position, the application allows you to draw on a canvas.
-- Gesture-based commands enable you to select colors, draw, and clear the canvas.
+The application follows the pipeline:
+
+```text
+Webcam Input
+     |
+     v
+Frame Capture
+     |
+     v
+Hand Landmark Detection
+     |
+     v
+Finger Position Tracking
+     |
+     v
+Gesture Interpretation
+     |
+     +--------------------+
+     |                    |
+     v                    v
+Drawing Input        UI Interaction
+     |                    |
+     v                    v
+Canvas Update       Color / Clear
+     |
+     v
+Rendered Output
+```
+
+---
+
+## Hand Tracking
+
+MediaPipe is used to detect and track hand landmarks from each webcam frame.
+
+The application tracks the index finger position and uses its movement to determine where drawing should occur on the virtual canvas.
+
+---
+
+## Gesture-Based Interaction
+
+Different regions and hand movements are used to control the application.
+
+### Drawing
+
+Move the index finger across the drawing region to create strokes on the canvas.
+
+### Color Selection
+
+Move the hand over the color-selection areas at the top of the interface to change the active drawing color.
+
+Available colors include:
+
+- Blue
+- Green
+- Red
+- Yellow
+
+### Clear Canvas
+
+Move the hand over the `CLEAR` region to erase the current drawing.
+
+---
+
+## Technologies
+
+- Python
+- OpenCV
+- MediaPipe
+- NumPy
+- Collections `deque`
+- Computer Vision
+- Hand Tracking
+- Gesture Recognition
+
+---
+
+## Repository Structure
+
+```text
+ScreenCanvas/
+├── ScreenCanvas.py
+├── README.md
+└── LICENSE
+```
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/RahulR666/ScreenCanvas.git
+cd ScreenCanvas
+```
+
+Install the required dependencies:
+
+```bash
+pip install numpy opencv-python mediapipe
+```
+
+---
+
+## Running the Application
+
+Ensure that a webcam is connected, then run:
+
+```bash
+python ScreenCanvas.py
+```
+
+Press:
+
+```text
+q
+```
+
+to exit the application.
+
+---
 
 ## Usage
 
-1. **Run the application**: 
-   Ensure your webcam is connected and run the `screencanvas.py` script.
-   
-2. **Start Drawing**:
-   - Move your index finger to draw on the canvas.
-   - To change colors, move your hand over the color boxes at the top of the screen.
-   - To clear the canvas, move your hand over the "CLEAR" box.
+1. Launch the application.
+2. Position your hand clearly in front of the webcam.
+3. Move your index finger to draw on the canvas.
+4. Move your hand over one of the color-selection regions to change the drawing color.
+5. Move your hand over the `CLEAR` region to reset the canvas.
+6. Press `q` to quit.
 
-3. **Exit the application**:
-   Press the `q` key to quit the application.
+---
 
-## Future Enhancements
+## Demo
 
-- Add support for saving the canvas as an image file.
-- Improve gesture recognition accuracy and add more gestures for different functionalities.
-- Implement a more sophisticated user interface for easier interaction.
+<!-- ADD DEMO GIF OR SCREENSHOT HERE -->
 
-## Contributing
+A short GIF demonstrating drawing, color selection, and canvas clearing will be added here.
 
-Contributions are welcome! Please feel free to submit a Pull Request or open an Issue to discuss improvements or bug fixes.
+Example:
 
-## Contact
+```markdown
+![ScreenCanvas Demo](results/screencanvas_demo.gif)
+```
 
-For any inquiries, please contact [rahulrathnam666@gmail.com](mailto:your.email@example.com).
+---
 
+## Future Improvements
 
+Potential improvements include:
+
+- saving completed drawings as image files
+- adding additional gesture commands
+- improving gesture robustness
+- supporting brush-size control
+- adding an eraser mode
+- improving the user interface
+- supporting multiple hands
+- adding gesture-based undo and redo
+- improving performance under different lighting conditions
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+See the `LICENSE` file for details.
+
+---
+
+## Author
+
+**Rahul Rathnam**
+
+Robotics Software Engineer  
+Localization | Perception | Sensor Fusion | Autonomous Systems
+
+GitHub: [RahulR666](https://github.com/RahulR666)
